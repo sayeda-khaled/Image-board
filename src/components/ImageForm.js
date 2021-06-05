@@ -22,7 +22,7 @@ class ImageForm extends Component {
 
   handleSubmit(event) {
     this.props.addImage(this.state);
-    // event.preventDefault();
+    event.preventDefault();
   }
 
   render() {

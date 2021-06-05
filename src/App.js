@@ -1,25 +1,40 @@
+import { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ImageForm from './components/ImageForm.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      firstName: "Taylor",
+      lastName: "WHIT",
+    };
+    this.changeName = this.changeName.bind(this);
+  }
+
+  changeName (){
+    let fullName= this.state.firstName + this.state.lastName;
+    this.setState({
+      name: fullName
+    });
+  }
+  render() {
+
+    return (
+      <>
+
+      <ImageForm changeName={this.changeName} lastName={this.state.lastName}/>
+      <h1> {this.state.name} </h1>
+
+
+     </>
+    );
+  }
 }
+
+
 
 export default App;

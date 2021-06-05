@@ -2,23 +2,47 @@ import { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ImageForm from './components/ImageForm.js';
+import ImageList from './components/ImageList.js';
 
+const defaultImages = [
+  {
+    caption: 'Cute image 1',
+    url: 'https://www.randomlists.com/img/animals/deer.webp'
+  },
+  {
+    caption: 'Cute image 2',
+    url: 'https://www.randomlists.com/img/animals/ocelot.webp'
+  },
+  {
+    caption: 'Cute image 3',
+    url: 'https://www.randomlists.com/img/animals/dugong.webp'
+  }
+]
 
 class App extends Component {
   constructor(props){
     super(props);
 
     this.state = {
-      firstName: "Taylor",
-      lastName: "WHIT",
+      images: [],
     };
-    this.changeName = this.changeName.bind(this);
+    this.addImage = this.addImage.bind(this);
   }
 
-  changeName (){
-    let fullName= this.state.firstName + this.state.lastName;
+  componentDidMount(){
+
     this.setState({
-      name: fullName
+    images: defaultImages
+
+    });
+  }
+
+
+  addImage(newEntry){
+    let imageCopy=[...this.state.images];
+    imageCopy.push(newEntry);
+    this.setState({
+      images: imageCopy,
     });
   }
   render() {
@@ -26,7 +50,8 @@ class App extends Component {
     return (
       <>
 
-      <ImageForm changeName={this.changeName} lastName={this.state.lastName}/>
+      <ImageForm addImage={this.addImage}/>
+      <ImageList images={this.state.images}/>
       <h1> {this.state.name} </h1>
 
 

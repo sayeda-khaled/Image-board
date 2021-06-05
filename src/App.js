@@ -3,20 +3,20 @@ import './App.css';
 import ImageForm from './components/ImageForm.js';
 import ImageList from './components/ImageList.js';
 
-const defaultImages = [
-  {
-    caption: 'Cute image 1',
-    url: 'https://www.randomlists.com/img/animals/deer.webp'
-  },
-  {
-    caption: 'Cute image 2',
-    url: 'https://www.randomlists.com/img/animals/ocelot.webp'
-  },
-  {
-    caption: 'Cute image 3',
-    url: 'https://www.randomlists.com/img/animals/dugong.webp'
-  }
-]
+// const defaultImages = [
+//   {
+//     caption: 'Animal image 1',
+//     url: 'https://www.randomlists.com/img/animals/deer.webp'
+//   },
+//   {
+//     caption: 'Animal image 2',
+//     url: 'https://www.randomlists.com/img/animals/ocelot.webp'
+//   },
+//   {
+//     caption: 'Animal image 3',
+//     url: 'https://www.randomlists.com/img/animals/dugong.webp'
+//   }
+// ]
 
 class App extends Component {
   constructor(props){
@@ -31,7 +31,7 @@ class App extends Component {
   componentDidMount(){
 
     this.setState({
-    images: defaultImages
+    images: [],
 
     });
   }
@@ -42,6 +42,7 @@ class App extends Component {
     imageCopy.push(newEntry);
     this.setState({
       images: imageCopy,
+    
     });
   }
   render() {

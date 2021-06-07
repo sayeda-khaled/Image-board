@@ -5,7 +5,8 @@ class ImageForm extends Component {
     super(props);
 
     this.state = {
-
+      caption: '',
+      url: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -14,15 +15,16 @@ class ImageForm extends Component {
 
   handleChange(evt) {
     const value = evt.target.value;
-    this.setState({
-      ...this.state,
-      [evt.target.name]: value
-    });
+    this.setState({[evt.target.name]: value});
   }
 
   handleSubmit(event) {
-    this.props.addImage(this.state);
     event.preventDefault();
+    this.props.addImage(this.state);
+    this.setState({
+      caption: '',
+      url: '',
+    })
   }
 
   render() {
@@ -31,14 +33,14 @@ class ImageForm extends Component {
 
       <label>
         Image URL:
-        <input name = "url" onChange={this.handleChange} />
+        <input name="url" onChange={this.handleChange} value={this.state.url}/>
       </label>
 
         <label>
           Image Caption:
-          <textarea name = "caption" onChange={this.handleChange} />
+          <textarea name="caption" onChange={this.handleChange} value={this.state.caption} />
         </label>
-        <input type="submit" value="Submit" />
+        <button type="submit">Add image</button>
       </form>
     );
   }

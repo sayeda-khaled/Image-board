@@ -29,10 +29,8 @@ class App extends Component {
   }
 
   componentDidMount(){
-
     this.setState({
     images: [],
-
     });
   }
 
@@ -42,19 +40,15 @@ class App extends Component {
     imageCopy.push(newEntry);
     this.setState({
       images: imageCopy,
-    
     });
   }
   render() {
 
     return (
       <>
-
-      <ImageForm addImage={this.addImage}/>
-      <ImageList images={this.state.images}/>
-      <h1> {this.state.name} </h1>
-
-
+        <ImageForm addImage={this.addImage}/>
+        <ImageList images={this.state.images}/>
+        <h1> {this.state.name} </h1>
      </>
     );
   }

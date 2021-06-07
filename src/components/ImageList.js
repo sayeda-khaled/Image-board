@@ -15,21 +15,16 @@ class ImageList extends Component {
 
   render() {
 
-const listItems = this.props.images.map((image, index) =>(
-<div key={index}>
-  <img src={image.url}></img>
-  <p>{image.caption}</p>
-</div>
-));
+    const listItems = this.props.images.map((image, index) =>(
+    <div key={index}>
+    <img src={image.url}></img>
+    <p>{image.caption}</p>
+    </div>
+    ));
     return (
-      <>
       <div>
-
         <div>{listItems}</div>
-
-
       </div>
-      </>
     );
   }
 }
